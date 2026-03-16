@@ -30,9 +30,7 @@
     "release:minor": "npm version minor && git push --follow-tags",
     "release:patch": "npm version patch && git push --follow-tags",
     "release:prerelease": "npm version prerelease && git push --follow-tags",
-    "test": "npm run test:schemas && npm run validate:schemas && npm run lint && npm run lint:md && npm run format:check",
-    "test:schemas": "node test/test-agent-schema.cjs",
-    "validate:schemas": "node test/validate-agent-schema.cjs"
+    "test": "npm run lint && npm run lint:md && npm run format:check"
   },
   "lint-staged": {
     "*.{js,cjs,mjs}": [

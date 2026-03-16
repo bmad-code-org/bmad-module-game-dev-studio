@@ -1,6 +1,6 @@
 ---
 name: gds-create-story
-description: 'Creates a dedicated story file with all the context the agent will need to implement it later. Use when the user says "create the next story" or "create story [story identifier]"'
+description: 'Create a dedicated story file with full implementation context. Use when the user says "create the next story" or "create story for this feature"'
 ---
 
 Follow the instructions in [workflow.md](workflow.md).

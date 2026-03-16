@@ -1,6 +1,6 @@
 ---
 name: gds-quick-dev-new-preview
-description: 'Implements any user intent, GDD requirement, story, bug fix or change request by producing clean working code artifacts that follow the project''s existing game architecture, patterns and conventions. Use when the user wants to build, fix, tweak, refactor, add or modify any game code, component or feature.'
+description: 'Unified quick flow to clarify intent, plan, implement, review and present in a single workflow. Use when the user says "quick dev new" or "use the unified quick flow"'
 ---
 
 Follow the instructions in [workflow.md](workflow.md).

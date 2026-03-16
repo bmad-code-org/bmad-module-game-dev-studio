@@ -1,14 +1,1 @@
-workflow-create-prd.md:
-  canonicalId: gds-create-prd
-  type: workflow
-  description: "(Optional) Create a PRD from GDD or from scratch, for use with external tools like bmad-assist"
-
-workflow-edit-prd.md:
-  canonicalId: gds-edit-prd
-  type: workflow
-  description: "Edit an existing PRD"
-
-workflow-validate-prd.md:
-  canonicalId: gds-validate-prd
-  type: workflow
-  description: "Validate a PRD against standards"
+type: skill

@@ -1,0 +1,51 @@
+{
+  "name": "bmad-game-dev-studio",
+  "owner": {
+    "name": "Brian (BMad) Madison"
+  },
+  "plugins": [
+    {
+      "name": "bmad-game-dev-studio",
+      "source": "./",
+      "description": "Game development agents and workflows — preproduction, design, architecture, production, and testing for Unity, Unreal, and Godot.",
+      "version": "0.2.2",
+      "skills": [
+        "./src/agents/gds-agent-game-architect",
+        "./src/agents/gds-agent-game-designer",
+        "./src/agents/gds-agent-game-dev",
+        "./src/agents/gds-agent-game-qa",
+        "./src/agents/gds-agent-game-scrum-master",
+        "./src/agents/gds-agent-game-solo-dev",
+        "./src/agents/gds-agent-tech-writer",
+        "./src/workflows/1-preproduction/gds-brainstorm-game",
+        "./src/workflows/1-preproduction/gds-create-game-brief",
+        "./src/workflows/1-preproduction/research/gds-domain-research",
+        "./src/workflows/2-design/gds-create-gdd",
+        "./src/workflows/2-design/gds-create-narrative",
+        "./src/workflows/2-design/gds-create-ux-design",
+        "./src/workflows/3-technical/gds-check-implementation-readiness",
+        "./src/workflows/3-technical/gds-create-epics-and-stories",
+        "./src/workflows/3-technical/gds-game-architecture",
+        "./src/workflows/3-technical/gds-generate-project-context",
+        "./src/workflows/4-production/gds-code-review",
+        "./src/workflows/4-production/gds-correct-course",
+        "./src/workflows/4-production/gds-create-story",
+        "./src/workflows/4-production/gds-dev-story",
+        "./src/workflows/4-production/gds-retrospective",
+        "./src/workflows/4-production/gds-sprint-planning",
+        "./src/workflows/4-production/gds-sprint-status",
+        "./src/workflows/gametest/gds-e2e-scaffold",
+        "./src/workflows/gametest/gds-performance-test",
+        "./src/workflows/gametest/gds-playtest-plan",
+        "./src/workflows/gametest/gds-test-automate",
+        "./src/workflows/gametest/gds-test-design",
+        "./src/workflows/gametest/gds-test-framework",
+        "./src/workflows/gametest/gds-test-review",
+        "./src/workflows/gds-document-project",
+        "./src/workflows/gds-quick-flow/gds-quick-dev",
+        "./src/workflows/gds-quick-flow/gds-quick-dev-new-preview",
+        "./src/workflows/gds-quick-flow/gds-quick-spec"
+      ]
+    }
+  ]
+}

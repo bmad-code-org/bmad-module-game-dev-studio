@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "bmad-game-dev-studio",
-  "private": true,
   "version": "0.2.2",
+  "private": true,
   "description": "A BMad MEthod Core Module that offers a substantial stand alone module for Game Development across multiple supported platforms",
   "keywords": [
     "bmad",

@@ -3,12 +3,19 @@
   "owner": {
     "name": "Brian (BMad) Madison"
   },
+  "license": "MIT",
+  "homepage": "https://github.com/bmad-code-org/bmad-module-game-dev-studio",
+  "repository": "https://github.com/bmad-code-org/bmad-module-game-dev-studio",
+  "keywords": ["bmad", "game-dev", "unity", "unreal", "godot", "game-design", "game-architecture"],
   "plugins": [
     {
       "name": "bmad-game-dev-studio",
       "source": "./",
-      "description": "Game development agents and workflows — preproduction, design, architecture, production, and testing for Unity, Unreal, and Godot.",
+      "description": "A comprehensive game development module with agents and workflows for preproduction, design, architecture, production, and testing across Unity, Unreal, and Godot. Part of the BMad Method ecosystem.",
       "version": "0.2.2",
+      "author": {
+        "name": "Brian (BMad) Madison"
+      },
       "skills": [
         "./src/agents/gds-agent-game-architect",
         "./src/agents/gds-agent-game-designer",

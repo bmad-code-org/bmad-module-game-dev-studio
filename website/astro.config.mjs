@@ -41,12 +41,6 @@ export default defineConfig({
       title: 'BMad Game Dev Studio',
       tagline: 'Game development (Unity, Unreal, Godot) module for the BMad Method.',
 
-      logo: {
-        light: './public/img/bmad-light.png',
-        dark: './public/img/bmad-dark.png',
-        alt: 'BMad Game Dev Studio',
-        replacesTitle: true,
-      },
       favicon: '/favicon.ico',
 
       // Social links

@@ -104,6 +104,20 @@ export default defineConfig({
           collapsed: true,
           autogenerate: { directory: 'reference' },
         },
+        {
+          label: 'BMad Ecosystem',
+          collapsed: false,
+          items: [
+            { label: 'BMad Method', link: 'https://docs.bmad-method.org/', attrs: { target: '_blank' } },
+            { label: 'BMad Builder', link: 'https://bmad-builder-docs.bmad-method.org/', attrs: { target: '_blank' } },
+            { label: 'Creative Intelligence Suite', link: 'https://cis-docs.bmad-method.org/', attrs: { target: '_blank' } },
+            {
+              label: 'Test Architect (TEA)',
+              link: 'https://bmad-code-org.github.io/bmad-method-test-architecture-enterprise/',
+              attrs: { target: '_blank' },
+            },
+          ],
+        },
       ],
 
       // Credits in footer

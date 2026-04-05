@@ -104,7 +104,14 @@ BMGD: Great choice! Here's what I recommend...
 ## Community
 
 - [Discord](https://discord.gg/gk8jAdXWmj) — Get help from other game devs
+- [YouTube](https://youtube.com/@BMadCode) — Tutorials, master class, and more
+- [X / Twitter](https://x.com/BMadCode)
+- [Website](https://bmadcode.com)
 - [GitHub Issues](https://github.com/bmad-code-org/bmad-module-game-dev-studio/issues) — Report bugs
+
+## Support BMad
+
+BMad is free for everyone and always will be. Star this repo, [buy me a coffee](https://buymeacoffee.com/bmad), or email contact@bmadcode.com for corporate sponsorship.
 
 ## License
 

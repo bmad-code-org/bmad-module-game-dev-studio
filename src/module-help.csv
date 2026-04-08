@@ -1,4 +1,5 @@
 module,skill,display-name,menu-code,description,action,args,phase,after,before,required,output-location,outputs
+Game Dev Studio,_meta,,,,,,,,,false,https://game-dev-studio-docs.bmad-method.org/llms.txt,
 Game Dev Studio,gds-document-project,Document Project,DP,Analyze an existing game project to produce useful documentation.,,anytime,,,false,project_knowledge,project documentation
 Game Dev Studio,bmad-gds-quick-prototype,Quick Prototype,QP,Rapid game prototyping to test mechanics and ideas quickly.,,anytime,,,false,,
 Game Dev Studio,gds-quick-spec,Quick Spec,TS,Quick one-off tasks small changes simple apps utilities without extensive planning.,,anytime,,,false,planning_artifacts,tech spec

@@ -53,4 +53,3 @@ Architecture is about delaying decisions until you have enough data. Build for t
 # ──────────────────────────────────────────────────────────────────
 [inject]
 before = ""
-after = ""

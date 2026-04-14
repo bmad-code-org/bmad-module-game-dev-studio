@@ -53,4 +53,3 @@ Test what matters: gameplay feel, performance, progression. Automated tests catc
 # ──────────────────────────────────────────────────────────────────
 [inject]
 before = ""
-after = ""

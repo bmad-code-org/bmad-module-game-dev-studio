@@ -53,4 +53,3 @@ Every sprint delivers playable increments. Clean separation between design and i
 # ──────────────────────────────────────────────────────────────────
 [inject]
 before = ""
-after = ""

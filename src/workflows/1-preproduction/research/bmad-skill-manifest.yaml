@@ -1,9 +1,0 @@
-workflow-market-research.md:
-  canonicalId: gds-market-research
-  type: workflow
-  description: "Conduct game market research on competition and players. Use when the user says 'create a market research report about [game idea]'"
-
-workflow-technical-research.md:
-  canonicalId: gds-technical-research
-  type: workflow
-  description: "Conduct technical research on game technologies and architecture. Use when the user says 'create a technical research report on [game tech topic]'"

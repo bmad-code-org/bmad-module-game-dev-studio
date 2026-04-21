@@ -12,7 +12,7 @@
       "name": "bmad-game-dev-studio",
       "source": "./",
       "description": "A comprehensive game development module with agents and workflows for preproduction, design, architecture, production, and testing across Unity, Unreal, and Godot. Part of the BMad Method ecosystem.",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "author": {
         "name": "Brian (BMad) Madison"
       },

@@ -78,7 +78,6 @@ This will read EVERY file in this area. Proceed? [y/n]
 </action>
 
 <action if="user confirms 'n'">Return to Step 13a (select different area)</action>
-<action>Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete` — if the resolved value is non-empty, follow it as the final terminal instruction before exiting.</action>
 </step>
 
 <step n="13b" goal="Comprehensive exhaustive scan of target area">
@@ -291,6 +290,7 @@ These comprehensive docs are now ready for:
 
 Thank you for using the document-project workflow!
 </action>
+<action>Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete` — if the resolved value is non-empty, follow it as the final terminal instruction before exiting.</action>
 <action>Exit workflow</action>
 </action>
 </step>

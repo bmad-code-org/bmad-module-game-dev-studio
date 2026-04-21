@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.4.0 - Apr 20, 2026 — customize.toml pattern across agents and workflows
+## v0.4.0 - Apr 21, 2026 — customize.toml pattern across agents and workflows
 
 ### Agent customization surface
 

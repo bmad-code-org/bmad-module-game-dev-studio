@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## v0.4.0 - Apr 20, 2026 — customize.toml pattern across agents and workflows
+
+### Agent customization surface
+
+* All five agents (`gds-agent-game-architect`, `gds-agent-game-designer`, `gds-agent-game-dev`, `gds-agent-game-solo-dev`, `gds-agent-tech-writer`) adopt the BMAD-METHOD `customize.toml` pattern. Each agent's `SKILL.md` now runs a six-step On Activation block that resolves customization via `resolve_customization.py`, executes prepend/append hook steps, loads `persistent_facts`, reads config from `{project-root}/_bmad/gds/config.yaml`, and greets the user before the menu appears.
+* Added `[agent]` namespace in each agent's `customize.toml` exposing `role`, `identity`, `communication_style`, `principles`, `persistent_facts`, `activation_steps_prepend/append`, and the `[[agent.menu]]` entries. Overrides merge per BMad structural rules (scalars override, keyed arrays-of-tables replace-or-append, other arrays append).
+* Added an agent roster with essence descriptors in `src/module.yaml` so external skills (party-mode, retrospective, advanced-elicitation, help catalog) can route to, display, and embody GDS agents without reading each agent file.
+
+### Workflow customization surface
+
+* All 31 workflow skills converted from redirect-only `SKILL.md` + `workflow.md` split to a single integrated `SKILL.md`. The standalone `workflow.md` file is removed from every workflow skill.
+* Each workflow gains the same six-step On Activation block as agents (resolve customization → prepend → `persistent_facts` → config load → greet → append), plus a `Conventions` block declaring `{skill-root}`, `{project-root}`, and `{skill-name}`.
+* Each workflow's terminal step now invokes `resolve_customization.py --key workflow.on_complete` — external step-file workflows (`steps-c/`, `steps-v/`, `steps-e/`, `steps/`) get the hook appended to the final step file; inline workflows get an `<action>` inside the final `<step>`.
+* Branching terminals handled: `gds-sprint-status` wires `on_complete` at all three terminal steps (main flow step 5, data mode step 20, validate mode step 30); `gds-document-project` wires it at three terminal points across `instructions.md`, `deep-dive-instructions.md` (Step 13g Finish), and `full-scan-instructions.md` so the hook fires regardless of dispatch path.
+* Added `customize.toml` at every workflow skill root with a `[workflow]` namespace exposing `activation_steps_prepend`, `activation_steps_append`, `persistent_facts`, and `on_complete`. Team and per-user overrides merge from `{project-root}/_bmad/custom/{skill-name}.toml` and `{skill-name}.user.toml`.
+
+### Fixes bundled with the rollout
+
+* `gds-e2e-scaffold`, `gds-document-project`: fix `{skill_root}` underscore typo to `{skill-root}` (dash) in `installed_path` declarations so downstream references resolve consistently with the `Conventions` block.
+
 ## v0.3.0 - Apr 14, 2026 — sync with BMAD-METHOD v6.3.0
 
 ### Phase 4 agent consolidation

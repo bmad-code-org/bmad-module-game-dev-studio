@@ -215,7 +215,7 @@ Since no workflow is in progress:
 - Or run `workflow-init` to create a workflow path and get guided next steps
   {{/if}}
   </output>
-
+<action>Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete` — if the resolved value is non-empty, follow it as the final terminal instruction before exiting.</action>
 </step>
 
 </workflow>

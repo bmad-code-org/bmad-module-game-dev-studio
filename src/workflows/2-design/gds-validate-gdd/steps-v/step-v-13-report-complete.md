@@ -255,3 +255,9 @@ Display:
 - Unclear next steps
 
 **Master Rule:** User needs a clear summary and actionable next steps. The `gds-edit-gdd` workflow is best for complex issues; immediate fixes are available for simpler ones.
+
+## On Complete
+
+Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
+
+If the resolved `workflow.on_complete` is non-empty, follow it as the final terminal instruction before exiting.

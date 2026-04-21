@@ -330,3 +330,9 @@ The Narrative Design workflow creates comprehensive narrative documentation thro
 11. **Complete** - Visualizations and handoff
 
 This step-file architecture ensures consistent, thorough narrative design with user collaboration at every step.
+
+## On Complete
+
+Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
+
+If the resolved `workflow.on_complete` is non-empty, follow it as the final terminal instruction before exiting.

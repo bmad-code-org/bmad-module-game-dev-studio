@@ -334,3 +334,9 @@ The GDD workflow transforms a game concept into a comprehensive design document 
 14. **Complete** - Document scope and hand off
 
 This step-file architecture ensures consistent, thorough GDD creation with user collaboration at every step.
+
+## On Complete
+
+Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
+
+If the resolved `workflow.on_complete` is non-empty, follow it as the final terminal instruction before exiting.

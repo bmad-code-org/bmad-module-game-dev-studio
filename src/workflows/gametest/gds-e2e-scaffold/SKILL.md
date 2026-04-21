@@ -86,7 +86,7 @@ This uses an **inline workflow pattern** for autonomous execution:
 
 ### Paths
 
-- `installed_path` = `{skill_root}`
+- `installed_path` = `{skill-root}`
 - `validation` = `{installed_path}/checklist.md`
 
 ### Inputs (Collect from User or Auto-Detect)

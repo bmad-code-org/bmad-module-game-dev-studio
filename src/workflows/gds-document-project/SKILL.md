@@ -13,7 +13,7 @@ description: 'Analyze existing game projects to produce useful documentation. Us
 
 ## Paths
 
-- `installed_path` = `{skill_root}`
+- `installed_path` = `{skill-root}`
 - `instructions` = `{installed_path}/instructions.md`
 - `validation` = `{installed_path}/checklist.md`
 - `documentation_requirements_csv` = `{installed_path}/documentation-requirements.csv`

@@ -1,0 +1,112 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Version bump type"
+        required: true
+        default: "patch"
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  release:
+    if: github.repository == 'bmad-code-org/bmad-module-game-dev-studio' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.RELEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+
+      - name: Configure git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run validation
+        run: npm test
+
+      - name: Bump version
+        run: |
+          npm version ${{ inputs.bump }} -m "chore(release): v%s [skip ci]"
+
+      - name: Capture new version
+        id: version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "tag=v${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Push version commit and tag
+        run: git push origin main --follow-tags
+
+      - name: Create GitHub Release
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          VERSION="${{ steps.version.outputs.version }}"
+          BODY=$(awk -v ver="$VERSION" '
+            /^## v/ { if (found) exit; if (index($0, "## v" ver)) found=1; next }
+            found { print }
+          ' CHANGELOG.md)
+          if [ -z "$BODY" ]; then
+            echo "::error::No CHANGELOG.md entry found for $TAG. Add a '## v${VERSION} - DATE' section before releasing."
+            exit 1
+          fi
+          gh release create "$TAG" \
+            --title "Game Dev Studio $TAG" \
+            --notes "$BODY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify Discord
+        if: success()
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          source .github/scripts/discord-helpers.sh
+          [ -z "$WEBHOOK" ] && exit 0
+          TAG="${{ steps.version.outputs.tag }}"
+          RELEASE_URL="${{ github.server_url }}/${{ github.repository }}/releases/tag/${TAG}"
+          MSG=$(printf '🎮 **[Game Dev Studio %s released](<%s>)**' "$TAG" "$RELEASE_URL" | esc)
+          jq -n --arg content "$MSG" '{content: $content}' | curl -sf --retry 2 -X POST "$WEBHOOK" -H "Content-Type: application/json" -d @-
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+
+      - name: Summary
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          {
+            echo "## Released ${TAG}"
+            echo ""
+            echo "- **GitHub Release:** https://github.com/${{ github.repository }}/releases/tag/${TAG}"
+          } >> $GITHUB_STEP_SUMMARY

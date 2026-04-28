@@ -1,36 +1,36 @@
 module,skill,display-name,menu-code,description,action,args,phase,after,before,required,output-location,outputs
 Game Dev Studio,_meta,,,,,,,,,false,https://game-dev-studio-docs.bmad-method.org/llms.txt,
-Game Dev Studio,gds-document-project,Document Project,DP,Analyze an existing game project to produce useful documentation.,,anytime,,,false,project_knowledge,project documentation
-Game Dev Studio,gds-quick-prototype,Quick Prototype,QP,Rapid game prototyping to test mechanics and ideas quickly.,,anytime,,,false,,
-Game Dev Studio,gds-quick-dev,Quick Dev,QD,Clarify plan implement review and present any user intent or change request in a single workflow.,,anytime,,,false,implementation_artifacts,spec
-Game Dev Studio,gds-correct-course,Correct Course,CC,Navigate significant changes during game dev sprint when implementation is off-track.,,anytime,,,false,planning_artifacts,change proposal
-Game Dev Studio,gds-brainstorm-game,Brainstorm Game,BG,Facilitate game brainstorming sessions with game-specific context and techniques.,,1-preproduction,,,false,output_folder,brainstorming session
-Game Dev Studio,gds-market-research,Market Research,MR,Game market analysis competitive landscape player needs and trends.,,1-preproduction,,,false,planning_artifacts,research documents
-Game Dev Studio,gds-domain-research,Domain Research,DR,Game industry domain deep dive subject matter expertise and terminology.,,1-preproduction,,,false,planning_artifacts,research documents
-Game Dev Studio,gds-technical-research,Technical Research,TR,Technical feasibility game engine options and implementation approaches.,,1-preproduction,,,false,planning_artifacts,research documents
-Game Dev Studio,gds-create-game-brief,Game Brief,GB,Interactive game brief creation that guides users through defining their game vision.,,1-preproduction,,,false,output_folder,game brief
-Game Dev Studio,gds-create-gdd,Game Design Document,GDD,Create a GDD with mechanics systems progression and implementation guidance.,,2-design,,,false,planning_artifacts,gdd
-Game Dev Studio,gds-validate-gdd,Validate GDD,VG,Validate an existing GDD against standards. Delegates to gds-validate-prd until GDD-specific checks are authored.,,2-design,gds-create-gdd,,false,planning_artifacts,gdd validation report
-Game Dev Studio,gds-edit-gdd,Edit GDD,EG,Improve and enhance an existing GDD. Delegates to gds-edit-prd until GDD-specific edit flow is authored.,,2-design,gds-validate-gdd,,false,planning_artifacts,updated gdd
-Game Dev Studio,gds-create-narrative,Narrative Design,ND,"Create comprehensive narrative documentation including story structure character arcs and world-building. Use for story-driven games.",,2-design,gds-create-gdd,,false,planning_artifacts,narrative design
-Game Dev Studio,gds-create-ux-design,Create UX Design,CU,"Guidance through realizing the plan for your game UX/UI, strongly recommended if UI is a primary piece of the proposed game.",,2-design,gds-create-gdd,,false,planning_artifacts,ux design
-Game Dev Studio,gds-create-prd,Create PRD,CP,Create a PRD from GDD or from scratch for use with external tools like bmad-assist.,,2-design,gds-create-gdd,,false,planning_artifacts,prd
-Game Dev Studio,gds-validate-prd,Validate PRD,VP,Validate PRD against standards for external tool compatibility.,,2-design,gds-create-prd,,false,planning_artifacts,prd validation report
-Game Dev Studio,gds-edit-prd,Edit PRD,EP,Improve and enhance an existing PRD.,,2-design,gds-validate-prd,,false,planning_artifacts,updated prd
-Game Dev Studio,gds-generate-project-context,Project Context,PC,Create optimized project-context.md for chosen agentic tool consistency.,,3-technical,,,false,,
-Game Dev Studio,gds-game-architecture,Game Architecture,GA,Produce a scale-adaptive game architecture with engine systems networking and technical design.,,3-technical,,,true,planning_artifacts,game architecture
-Game Dev Studio,gds-create-epics-and-stories,Create Epics and Stories,CE,Create the Epics and Stories listing from GDD requirements. These are the specs that drive development.,,3-technical,gds-game-architecture,,true,planning_artifacts,epics and stories
-Game Dev Studio,gds-check-implementation-readiness,Check Implementation Readiness,IR,Ensure GDD UX Architecture and Epics Stories are aligned before production begins.,,3-technical,gds-create-epics-and-stories,,true,planning_artifacts,readiness report
-Game Dev Studio,gds-test-framework,Test Framework,TF,Initialize game test framework architecture for Unity Unreal Engine or Godot projects.,,3-technical,,,false,,
-Game Dev Studio,gds-test-design,Test Design,TD,Create comprehensive game test scenarios covering gameplay progression and quality requirements.,,3-technical,gds-test-framework,,false,planning_artifacts,test design
-Game Dev Studio,gds-sprint-planning,Sprint Planning,SP,Generate or update sprint-status.yaml from epic files.,,4-production,,,true,implementation_artifacts,sprint status
-Game Dev Studio,gds-sprint-status,Sprint Status,SS,View sprint progress surface risks and get next action recommendation.,,4-production,gds-sprint-planning,,false,,
-Game Dev Studio,gds-create-story,Create Story,CS,Create Story with comprehensive context for developer agent implementation.,,4-production,gds-sprint-planning,,true,implementation_artifacts,story
-Game Dev Studio,gds-dev-story,Dev Story,DS,Execute Dev Story workflow implementing tasks and tests.,,4-production,gds-create-story,,true,,
-Game Dev Studio,gds-code-review,Code Review,CR,Perform thorough clean context QA code review on stories flagged Ready for Review.,,4-production,gds-dev-story,,false,,
-Game Dev Studio,gds-retrospective,Retrospective,ER,Facilitate team retrospective after a game development epic is completed.,,4-production,gds-code-review,,false,implementation_artifacts,retrospective
-Game Dev Studio,gds-test-automate,Test Automate,TA,Generate automated game tests.,,gametest,,,false,,
-Game Dev Studio,gds-e2e-scaffold,E2E Scaffold,ES,Scaffold E2E testing infrastructure.,,gametest,gds-test-automate,,false,,
-Game Dev Studio,gds-playtest-plan,Playtest Plan,PP,Create structured playtesting plan.,,gametest,gds-e2e-scaffold,,false,planning_artifacts,playtest plan
-Game Dev Studio,gds-performance-test,Performance Test,PT,Design performance testing strategy.,,gametest,gds-playtest-plan,,false,planning_artifacts,performance strategy
-Game Dev Studio,gds-test-review,Test Review,TR,Review test quality and coverage.,,gametest,gds-performance-test,,false,,
+Game Dev Studio,gds-document-project,Document Project,DP,Analyze an existing game project to produce useful documentation.,,,anytime,,,false,project_knowledge,project documentation
+Game Dev Studio,gds-quick-prototype,Quick Prototype,QP,Rapid game prototyping to test mechanics and ideas quickly.,,,anytime,,,false,,
+Game Dev Studio,gds-quick-dev,Quick Dev,QD,Clarify plan implement review and present any user intent or change request in a single workflow.,,,anytime,,,false,implementation_artifacts,spec
+Game Dev Studio,gds-correct-course,Correct Course,CC,Navigate significant changes during game dev sprint when implementation is off-track.,,,anytime,,,false,planning_artifacts,change proposal
+Game Dev Studio,gds-brainstorm-game,Brainstorm Game,BG,Facilitate game brainstorming sessions with game-specific context and techniques.,,,1-preproduction,,,false,output_folder,brainstorming session
+Game Dev Studio,gds-market-research,Market Research,MR,Game market analysis competitive landscape player needs and trends.,,,1-preproduction,,,false,planning_artifacts,research documents
+Game Dev Studio,gds-domain-research,Domain Research,DR,Game industry domain deep dive subject matter expertise and terminology.,,,1-preproduction,,,false,planning_artifacts,research documents
+Game Dev Studio,gds-technical-research,Technical Research,TR,Technical feasibility game engine options and implementation approaches.,,,1-preproduction,,,false,planning_artifacts,research documents
+Game Dev Studio,gds-create-game-brief,Game Brief,GB,Interactive game brief creation that guides users through defining their game vision.,,,1-preproduction,,,false,output_folder,game brief
+Game Dev Studio,gds-create-gdd,Game Design Document,GDD,Create a GDD with mechanics systems progression and implementation guidance.,,,2-design,,,false,planning_artifacts,gdd
+Game Dev Studio,gds-validate-gdd,Validate GDD,VG,Validate an existing GDD against standards. Delegates to gds-validate-prd until GDD-specific checks are authored.,,,2-design,gds-create-gdd,,false,planning_artifacts,gdd validation report
+Game Dev Studio,gds-edit-gdd,Edit GDD,EG,Improve and enhance an existing GDD. Delegates to gds-edit-prd until GDD-specific edit flow is authored.,,,2-design,gds-validate-gdd,,false,planning_artifacts,updated gdd
+Game Dev Studio,gds-create-narrative,Narrative Design,ND,Create comprehensive narrative documentation including story structure character arcs and world-building. Use for story-driven games.,,,2-design,gds-create-gdd,,false,planning_artifacts,narrative design
+Game Dev Studio,gds-create-ux-design,Create UX Design,CU,"Guidance through realizing the plan for your game UX/UI, strongly recommended if UI is a primary piece of the proposed game.",,,2-design,gds-create-gdd,,false,planning_artifacts,ux design
+Game Dev Studio,gds-create-prd,Create PRD,CP,Create a PRD from GDD or from scratch for use with external tools like bmad-assist.,,,2-design,gds-create-gdd,,false,planning_artifacts,prd
+Game Dev Studio,gds-validate-prd,Validate PRD,VP,Validate PRD against standards for external tool compatibility.,,,2-design,gds-create-prd,,false,planning_artifacts,prd validation report
+Game Dev Studio,gds-edit-prd,Edit PRD,EP,Improve and enhance an existing PRD.,,,2-design,gds-validate-prd,,false,planning_artifacts,updated prd
+Game Dev Studio,gds-generate-project-context,Project Context,PC,Create optimized project-context.md for chosen agentic tool consistency.,,,3-technical,,,false,,
+Game Dev Studio,gds-game-architecture,Game Architecture,GA,Produce a scale-adaptive game architecture with engine systems networking and technical design.,,,3-technical,,,true,planning_artifacts,game architecture
+Game Dev Studio,gds-create-epics-and-stories,Create Epics and Stories,CE,Create the Epics and Stories listing from GDD requirements. These are the specs that drive development.,,,3-technical,gds-game-architecture,,true,planning_artifacts,epics and stories
+Game Dev Studio,gds-check-implementation-readiness,Check Implementation Readiness,IR,Ensure GDD UX Architecture and Epics Stories are aligned before production begins.,,,3-technical,gds-create-epics-and-stories,,true,planning_artifacts,readiness report
+Game Dev Studio,gds-test-framework,Test Framework,TF,Initialize game test framework architecture for Unity Unreal Engine or Godot projects.,,,3-technical,,,false,,
+Game Dev Studio,gds-test-design,Test Design,TD,Create comprehensive game test scenarios covering gameplay progression and quality requirements.,,,3-technical,gds-test-framework,,false,planning_artifacts,test design
+Game Dev Studio,gds-sprint-planning,Sprint Planning,SP,Generate or update sprint-status.yaml from epic files.,,,4-production,,,true,implementation_artifacts,sprint status
+Game Dev Studio,gds-sprint-status,Sprint Status,SS,View sprint progress surface risks and get next action recommendation.,,,4-production,gds-sprint-planning,,false,,
+Game Dev Studio,gds-create-story,Create Story,CS,Create Story with comprehensive context for developer agent implementation.,,,4-production,gds-sprint-planning,,true,implementation_artifacts,story
+Game Dev Studio,gds-dev-story,Dev Story,DS,Execute Dev Story workflow implementing tasks and tests.,,,4-production,gds-create-story,,true,,
+Game Dev Studio,gds-code-review,Code Review,CR,Perform thorough clean context QA code review on stories flagged Ready for Review.,,,4-production,gds-dev-story,,false,,
+Game Dev Studio,gds-retrospective,Retrospective,ER,Facilitate team retrospective after a game development epic is completed.,,,4-production,gds-code-review,,false,implementation_artifacts,retrospective
+Game Dev Studio,gds-test-automate,Test Automate,TA,Generate automated game tests.,,,gametest,,,false,,
+Game Dev Studio,gds-e2e-scaffold,E2E Scaffold,ES,Scaffold E2E testing infrastructure.,,,gametest,gds-test-automate,,false,,
+Game Dev Studio,gds-playtest-plan,Playtest Plan,PP,Create structured playtesting plan.,,,gametest,gds-e2e-scaffold,,false,planning_artifacts,playtest plan
+Game Dev Studio,gds-performance-test,Performance Test,PT,Design performance testing strategy.,,,gametest,gds-playtest-plan,,false,planning_artifacts,performance strategy
+Game Dev Studio,gds-test-review,Test Review,TR,Review test quality and coverage.,,,gametest,gds-performance-test,,false,,

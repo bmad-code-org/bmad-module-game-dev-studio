@@ -195,6 +195,7 @@ How should systems access game data?
 - **Data manager** - Centralized access
 - **Scriptable objects** - Engine-native (Unity)
 - **Resources/Autoload** - Engine-native (Godot)
+- **ModuleScript services** - Engine-native (Roblox)
 
 How should data be accessed?"
 

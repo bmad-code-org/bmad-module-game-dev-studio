@@ -251,6 +251,55 @@ engine_mcps:
         license: "MIT"
         benefit_summary: "AI agents get access to the full Godot documentation for accurate API usage without relying on training data."
 
+  roblox:
+    engine: "Roblox Studio"
+    mcps:
+      roblox_studio_mcp:
+        name: "Roblox Studio MCP (Official)"
+        repo: "Official Roblox Studio plugin — not a community GitHub repo"
+        search_term: "Roblox Studio MCP plugin Claude Code setup"
+        description: "First-party MCP server built into Roblox Studio. Gives AI agents direct access to the DataModel, scripts, live Luau execution, asset generation, and playtest control — no copy-pasting needed."
+        capabilities:
+          # DataModel exploration
+          - "Investigate the place in parallel and return a compact summary (explore_subagent)"
+          - "Explore the instance hierarchy as a flat JSON array (search_game_tree)"
+          - "Inspect any Instance's properties, attributes, and children in detail (inspect_instance)"
+          # Script tools
+          - "Read Scripts, LocalScripts, and ModuleScripts with line numbers (script_read)"
+          - "Search all script contents by string or Luau pattern (script_grep)"
+          - "Find scripts by name via fuzzy match (script_search)"
+          - "Apply multiple edits to a script atomically (multi_edit)"
+          # Live execution
+          - "Execute arbitrary Luau in the live game context and return the result (execute_luau)"
+          - "Retrieve output logs while the game is running (console_output)"
+          # Playtest control
+          - "Start or stop a playtesting session (start_stop_play)"
+          - "Spawn a test character that runs through gameplay scenarios in its own context (playtest_subagent)"
+          - "Move the player character to a position or Instance during play (character_navigation)"
+          - "Simulate key presses, key holds, and text input (keyboard_input)"
+          - "Simulate mouse clicks, movement, and scrolling (mouse_input)"
+          # Visual
+          - "Capture the current Studio viewport in Play mode (screen_capture)"
+          # AI asset generation
+          - "Generate a textured 3D mesh from a text prompt (generate_mesh)"
+          - "Generate a custom material or texture (generate_material)"
+          - "Generate custom procedural models that scale and adapt automatically (generate_procedural_model)"
+          - "Insert assets, plugins, and models from the Creator Store (insert_from_creator_store)"
+          # Multi-studio
+          - "List all connected Studio instances and switch the active one (list_roblox_studios, set_active_studio)"
+        install_type: "Roblox Studio Plugin (official, bundled with Studio or available via Plugin Manager)"
+        install_steps:
+          - "Open Roblox Studio"
+          - "Install the MCP plugin from the Studio Plugin Manager if not already present"
+          - "The plugin starts a local MCP server when Studio is running"
+          - "In Claude Code: claude mcp add roblox-studio <server-command> (verify exact command via Roblox docs)"
+          - "Confirm the active Studio instance with list_roblox_studios before making edits"
+        requirements: "Roblox Studio (latest version recommended)"
+        supported_clients: ["Claude Code", "Claude Desktop"]
+        license: "Proprietary (Roblox)"
+        note: "Unlike community MCPs for other engines, this is a first-party tool maintained by Roblox. The execute_luau tool — which runs arbitrary Luau in the live game context — is a capability no community engine MCP currently matches. Verify install steps via current Roblox documentation, as the plugin ecosystem evolves."
+        benefit_summary: "The official Roblox Studio MCP gives AI agents 21 tools covering the full edit → script → run → inspect → fix loop. The standout capability is execute_luau: run assertions, inspect live state, fire RemoteEvents, and verify game behavior directly from the AI session without leaving Claude Code."
+
   general:
     engine: "Any"
     description: "General-purpose MCPs useful for any game engine"
@@ -289,6 +338,8 @@ recommendation_rules:
     unreal_default: "unreal_mcp"
     godot_default: "godot_mcp_gopeak"
     godot_alternative: "godot_mcp_tugcantopaloglu"
+    roblox_default: "roblox_studio_mcp"
+    roblox_note: "Only one MCP exists for Roblox and it is first-party and official — recommend it unconditionally"
 
   recommend_if:
     godot_docs_needed:

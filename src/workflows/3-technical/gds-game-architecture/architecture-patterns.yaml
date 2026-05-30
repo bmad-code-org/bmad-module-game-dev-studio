@@ -464,6 +464,7 @@ decision_rules:
       - rapid_prototype: "Godot"
       - web_browser_target: "Godot (HTML5), Phaser, or PlayCanvas"
       - vr_xr: "Unity (XR Toolkit) or Unreal (OpenXR)"
+      - roblox_platform_target: "Roblox Studio — platform handles deployment, networking, and avatar system"
 
   networking_model:
     if_requirements_include:

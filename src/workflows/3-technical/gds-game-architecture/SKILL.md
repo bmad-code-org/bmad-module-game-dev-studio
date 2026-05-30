@@ -89,6 +89,7 @@ Load ONLY the fragment matching the engine selected during execution. These comp
 - `knowledge_fragments.unity` = `{installed_path}/knowledge/unity-engine.md`
 - `knowledge_fragments.unreal` = `{installed_path}/knowledge/unreal-engine.md`
 - `knowledge_fragments.phaser` = `{installed_path}/knowledge/phaser-engine.md`
+- `knowledge_fragments.roblox` = `{installed_path}/knowledge/roblox-engine.md`
 
 ---
 

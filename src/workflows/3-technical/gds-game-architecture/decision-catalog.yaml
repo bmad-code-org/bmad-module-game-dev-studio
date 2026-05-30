@@ -18,6 +18,19 @@ decision_categories:
         pairs_with: ["GDScript", "C#", "GDExtension", "Godot Physics", "GodotSteam"]
       phaser:
         pairs_with: ["JavaScript", "TypeScript", "Matter.js", "Arcade Physics"]
+      roblox:
+        pairs_with:
+          [
+            "Luau",
+            "DataStoreService",
+            "MemoryStoreService",
+            "RemoteEvents",
+            "TweenService",
+            "UserInputService",
+            "ContextActionService",
+            "Rojo",
+            "Wally",
+          ]
       bevy:
         pairs_with: ["Rust", "ECS", "wgpu"]
       monogame:
@@ -42,6 +55,8 @@ decision_categories:
         pairs_with: ["Godot", "OpenGL", "mobile", "web export"]
       custom_2d:
         pairs_with: ["Phaser", "SDL", "sprite batching", "pixel art"]
+      roblox_rendering:
+        pairs_with: ["Roblox", "fixed pipeline (platform-managed)", "SurfaceAppearance", "Atmosphere", "Lighting", "StreamingEnabled"]
 
   physics_system:
     triggers: ["physics", "collision", "rigid body", "character controller", "raycasting", "platformer movement"]
@@ -58,6 +73,8 @@ decision_categories:
         pairs_with: ["platformers", "raycasting", "kinematic bodies"]
       deterministic:
         pairs_with: ["rollback netcode", "fixed-point math", "lockstep multiplayer"]
+      roblox_physics:
+        pairs_with: ["Roblox", "Humanoid", "BasePart constraints", "Workspace.Gravity", "client-authoritative character movement"]
 
   audio_system:
     triggers: ["audio", "music", "sound effects", "SFX", "adaptive music", "spatial audio", "voice"]
@@ -70,6 +87,8 @@ decision_categories:
         pairs_with: ["Unity", "Unreal", "Godot (via plugin)", "adaptive music", "large projects"]
       wwise:
         pairs_with: ["Unity", "Unreal", "AAA projects", "spatial audio", "large sound libraries"]
+      roblox_audio:
+        pairs_with: ["Roblox", "SoundService", "Sound/SoundGroup instances", "AudioAnalyzer", "spatial 3D audio via RollOffMode"]
 
   networking:
     triggers: ["multiplayer", "online", "netcode", "co-op", "PvP", "lobby", "matchmaking", "dedicated server"]
@@ -92,6 +111,17 @@ decision_categories:
         pairs_with: ["Godot", "MultiplayerAPI", "ENet", "WebSocket"]
       custom_udp:
         pairs_with: ["ENet", "LiteNetLib", "GameServer.io", "custom protocol"]
+      roblox_networking:
+        pairs_with:
+          [
+            "Roblox",
+            "RemoteEvent",
+            "RemoteFunction",
+            "server-authoritative (mandatory)",
+            "FilteringEnabled",
+            "MemoryStoreService for cross-server",
+            "MessagingService",
+          ]
 
   input_system:
     triggers: ["input", "controls", "controller", "gamepad", "keyboard", "touch", "gesture", "rebinding"]
@@ -108,6 +138,9 @@ decision_categories:
         pairs_with: ["Unity", "advanced controller support", "Steam Input"]
       custom_buffer:
         pairs_with: ["fighting games", "input buffering", "command parsing"]
+      roblox_input:
+        pairs_with:
+          ["Roblox", "UserInputService", "ContextActionService", "mobile touch (automatic)", "gamepad (Xbox controller supported)"]
 
   ai_system:
     triggers: ["AI", "enemies", "NPC", "behavior", "pathfinding", "navigation", "companion"]
@@ -142,6 +175,16 @@ decision_categories:
         pairs_with: ["Steam Cloud", "PSN", "Xbox Cloud", "iCloud", "Google Play"]
       custom_binary:
         pairs_with: ["performance-sensitive", "large worlds", "anti-tamper"]
+      roblox_datastore:
+        pairs_with:
+          [
+            "Roblox",
+            "DataStoreService",
+            "UpdateAsync",
+            "MemoryStoreService session locking",
+            "in-memory cache pattern",
+            "BindToClose flush",
+          ]
 
   ui_framework:
     triggers: ["UI", "HUD", "menu", "inventory screen", "dialogue box", "health bar", "minimap"]
@@ -158,6 +201,9 @@ decision_categories:
         pairs_with: ["Godot", "Control nodes", "themes", "containers"]
       imgui:
         pairs_with: ["debug tools", "dev UI", "any engine via binding"]
+      roblox_gui:
+        pairs_with:
+          ["Roblox", "ScreenGui", "PlayerGui", "vanilla Roblox UI", "Fusion (community reactive)", "Roact (community declarative)"]
 
   asset_pipeline:
     triggers: ["assets", "textures", "models", "sprites", "animation", "import", "asset bundles", "streaming"]
@@ -172,6 +218,8 @@ decision_categories:
         pairs_with: ["Unreal", "async loading", "streaming levels", "pak files"]
       godot_resource_loader:
         pairs_with: ["Godot", "ResourceLoader", "threaded loading", "PCK files"]
+      roblox_assets:
+        pairs_with: ["Roblox", "Creator Store", "ContentProvider", "StreamingEnabled", "ReplicatedStorage vs ServerStorage split"]
 
   deployment_platform:
     triggers: ["platform", "target", "build", "export", "Steam", "console", "mobile", "web"]
@@ -190,6 +238,17 @@ decision_categories:
         pairs_with: ["WebGL", "WebAssembly", "itch.io", "Newgrounds"]
       vr_headset:
         pairs_with: ["OpenXR", "Meta SDK", "SteamVR", "platform store"]
+      roblox_platform:
+        pairs_with:
+          [
+            "Roblox handles all deployment",
+            "PC",
+            "mobile iOS/Android",
+            "Xbox",
+            "VR (Meta Quest)",
+            "no App Store submission required",
+            "Robux monetization",
+          ]
 
 # Opinionated stack combinations for common game types
 common_stacks:
@@ -222,6 +281,21 @@ common_stacks:
     name: "Godot 3D"
     components: ["Godot", "GDScript or C#", "Forward+ renderer", "NavigationServer", "Jolt Physics"]
     good_for: "Mid-scope 3D games, open source priority, multi-platform"
+
+  roblox_experience:
+    name: "Roblox Experience"
+    components:
+      [
+        "Roblox Studio",
+        "Luau",
+        "DataStoreService + MemoryStoreService",
+        "RemoteEvents/RemoteFunctions",
+        "UserInputService/ContextActionService",
+        "SoundService",
+        "Rojo (version control)",
+        "Wally (packages)",
+      ]
+    good_for: "Social games, multiplayer experiences, UGC-driven games, games targeting the Roblox platform"
 
   web_browser_game:
     name: "Browser/HTML5 Game"
@@ -293,6 +367,20 @@ starter_templates:
     command_search: "npm create @phaserjs/game@latest"
     decisions_provided: ["Phaser framework", "TypeScript option", "Vite bundler", "Arcade Physics"]
     good_for: ["Browser games", "2D web games", "game jams"]
+
+  roblox_new_place:
+    name: "Roblox New Place"
+    command_search: "Roblox Studio → New → Baseplate (or your template of choice)"
+    decisions_provided:
+      [
+        "Roblox engine",
+        "Luau language",
+        "server-authoritative networking (mandatory)",
+        "DataStoreService persistence",
+        "platform-managed deployment",
+        "Roblox avatar system",
+      ]
+    good_for: ["Roblox platform games", "multiplayer experiences", "social games", "UGC games"]
 
   bevy_default:
     name: "Bevy Default"

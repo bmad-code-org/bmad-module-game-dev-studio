@@ -104,11 +104,12 @@ Based on requirements, search for appropriate options:
 
 | Game Type    | Recommended Options         |
 | ------------ | --------------------------- |
-| **2D Indie** | Godot, Unity 2D, Phaser     |
-| **3D Indie** | Godot, Unity, Unreal        |
-| **Web Game** | Phaser, PixiJS, Three.js    |
-| **Mobile**   | Unity, Godot, Flutter Flame |
-| **VR/AR**    | Unity, Unreal               |
+| **2D Indie** | Godot, Unity 2D, Phaser          |
+| **3D Indie** | Godot, Unity, Unreal             |
+| **Web Game** | Phaser, PixiJS, Three.js         |
+| **Mobile**   | Unity, Godot, Flutter Flame      |
+| **VR/AR**    | Unity, Unreal                    |
+| **Social/Platform** | Roblox Studio               |
 
 Search web: "{{recommended_engine}} game engine {{current_year}} version features"
 

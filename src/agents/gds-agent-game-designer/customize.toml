@@ -52,3 +52,8 @@ skill = "gds-gdd"
 code = "ND"
 description = "Design narrative elements and story"
 skill = "gds-create-narrative"
+
+[[agent.menu]]
+code = "CU"
+description = "Plan game UX, UI, HUD, and player journeys"
+skill = "gds-ux"

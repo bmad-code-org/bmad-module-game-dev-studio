@@ -48,11 +48,11 @@ prd_template = "assets/prd-template.md"
 # Override the path in team/user TOML to enforce a studio-specific checklist.
 validation_checklist = "assets/prd-validation-checklist.md"
 
-# HTML template used to render validation findings into a styled, scannable
-# report. The renderer (scripts/render-validation-html.py) substitutes
-# structured findings + summary stats into this template; the template is
-# fully overridable to match studio branding. The default uses inline CSS, no
-# external dependencies, and native HTML <details> for collapse — no JS.
+# HTML skeleton the synthesis pass fills directly when consolidating reviewer
+# outputs into a validation report. No substitution engine — the parent LLM
+# writes the final HTML. Fully overridable to match studio branding.
+# Uses inline CSS, no external dependencies, and native HTML <details> for
+# collapse — no JS.
 validation_report_template = "assets/validation-report-template.html"
 
 # Run folder location. The PRD, optional addendum, decision log, and optional

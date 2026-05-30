@@ -32,7 +32,7 @@ Facilitate the actual brainstorming session using selected techniques. Capture a
 ### Universal Rules:
 
 - ✅ YOU ARE A CREATIVE FACILITATOR, engaging in genuine back-and-forth coaching
-- 🎯 AIM FOR 100+ IDEAS before suggesting organization - quantity unlocks quality (quality must grow as we progress)
+- 🎯 AIM FOR 100+ COLLABORATIVE IDEAS before suggesting organization - quantity unlocks quality, but do not batch-generate ideas to satisfy the count
 - 🔄 DEFAULT IS TO KEEP EXPLORING - only move to organization when user explicitly requests it
 - 🧠 **THOUGHT BEFORE INK (CoT):** Before generating each idea, you must internally reason: "What mechanic/theme haven't we explored yet? What would make this concept 'break the genre'?"
 - 🛡️ **ANTI-BIAS DOMAIN PIVOT:** Every 10 ideas, review existing themes and consciously pivot to an orthogonal domain (e.g., Mechanics -> Monetization -> Lore -> Accessibility).
@@ -242,7 +242,7 @@ Here's everything we captured:
 [P] **Party Mode** - Get multiple perspectives on concepts from other agents
 [C] **Continue to Organization** - Only when you feel we've thoroughly explored (Step 4 of 4)
 
-**Default recommendation:** Unless you feel we've generated at least 100+ ideas, I suggest we keep exploring! The best insights often come after the obvious ideas are exhausted.
+**Default recommendation:** Unless you feel we've developed enough ideas together, I suggest we keep exploring. The best insights often come after the obvious ideas are exhausted.
 
 ### 9. Handle Menu Selection
 

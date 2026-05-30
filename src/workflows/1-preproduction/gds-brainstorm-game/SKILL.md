@@ -55,7 +55,7 @@ Greet `{user_name}`, speaking in `{communication_language}`.
 
 Execute each entry in `{workflow.activation_steps_append}` in order.
 
-Activation is complete. Begin the workflow below.
+Activation is complete. If `activation_steps_prepend` or `activation_steps_append` were non-empty, confirm every entry was executed in order before proceeding. Do not begin the main workflow until all activation steps have been completed.
 
 ## WORKFLOW ARCHITECTURE
 
@@ -90,7 +90,7 @@ This uses **step-file architecture** for disciplined execution:
 - NEVER mention time estimates
 - ALWAYS wait for user input between steps
 - **Critical Mindset:** Keep the user in generative exploration mode. The best sessions push past obvious ideas into truly novel territory. When in doubt, ask another question, try another technique, or dig deeper into a promising thread
-- **Quantity Goal:** Aim for 100+ ideas before any organization — the first 20 are usually obvious; the magic happens in ideas 50-100
+- **Quantity Goal:** Aim for 100+ collaboratively developed ideas before any organization — this is a session goal, not a request to generate a large list; ideas count only when they emerge through dialogue with the user or are accepted and developed by the user
 
 
 ## INITIALIZATION SEQUENCE

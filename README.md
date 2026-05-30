@@ -42,6 +42,7 @@ BMGD supports **21 game types**, including:
 - **Product Research** — Market analysis, competitor research, positioning
 - **Game Design Document** — Comprehensive GDD with mechanics, progression, and balance
 - **Narrative Design** — Story structure, characters, dialogue, world-building
+- **UX Design** — Two peer specs: `DESIGN.md` (visual identity) and `EXPERIENCE.md` (UI/HUD behavior, input schemes, player journeys)
 - **Technical Architecture** — Engine patterns, performance considerations
 - **Production Planning** — Epic-driven sprints, story tracking, retrospectives
 - **Quick Prototyping** — Skip the planning, jump straight into building

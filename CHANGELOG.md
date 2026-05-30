@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## v0.6.0 - May 30, 2026 — sync with BMAD-METHOD v6.8.0
+
+Syncs game-content and skill changes from BMAD-METHOD v6.6.0 → v6.8.0.
+
+### New skill
+
+* `gds-ux` — spine-based UX skill ported from upstream `bmad-ux`. Produces two peer contracts: `DESIGN.md` (visual identity, per the Google Labs design.md spec) and `EXPERIENCE.md` (information architecture, menu/HUD behavior, states, interactions, player journeys). Carries game-specific EXPERIENCE.md sections (HUD/diegetic UI, controller/gamepad/touch input schemes, game feel/juice, console/handheld/PC/VR form-factors) and a game example pair. Replaces the former `gds-create-ux-design` and is wired into the designer agent menu (code `CU`).
+
+### Changed
+
+* `gds-prd` — re-ported the upstream PRD overhaul (#2385, #2378): Session Posture and voice rules, intent-detection signals, the Discovery restructure, PRD Discipline regroup, FR-N template funnel discipline (testable FRs, `Realizes UJ-X` / `Validates FR-X` cross-references, glossary exact-use, named-persona journeys), an expanded validation checklist, and `external_sources` / `external_handoffs` config. Adopted upstream's reference layout — added `references/validate.md` and `references/probing.md`; removed `facilitation-guide.md`, `validation-render.md`, and `scripts/render-validation-html.py`. The GDD-primary framing and From-GDD path are preserved.
+* `gds-create-game-brief` — streamlined into a lean intent-routed facilitator (create / update / validate) with a config-driven reviewer panel, `polish_passes`, real-time persistence, and a single `assets/brief-template.md`, replacing the 8-step scripted workflow (upstream #2370 / #2378 / `c19f6cd7`). All game-domain brief content (vision, genre, core loop, design pillars, scope/MVP, comparable titles, references, content) is preserved.
+* `gds-dev-story` — captures a baseline git commit before implementation begins (upstream #2403).
+* Activation guardrails strengthened across 24 workflow skills to prevent short-circuiting before activation completes (upstream #2398).
+* `gds-brainstorm-game` — ideation now develops ideas collaboratively with the user rather than batch-generating (mirrors upstream #2402).
+
+### Notes
+
+* `bmad-spec` (upstream #2417) is a `core-skills` skill supplied to GDS through the `core` module; it is not forked here. An optional game-adapted `gds-spec` is logged in `TODO.md` for a possible later sync.
+
 ## v0.5.0 - May 15, 2026 — sync with BMAD-METHOD v6.6.0
 
 Syncs game-content and skill changes from BMAD-METHOD v6.3.0 → v6.6.0. The `customize.toml` architecture was already adopted in v0.4.0, so this release ports content, consolidates the PRD and GDD skill trios, and adds a new investigation skill.

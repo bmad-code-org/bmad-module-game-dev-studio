@@ -1,41 +1,116 @@
 # DO NOT EDIT -- overwritten on every update.
 #
-# Workflow customization surface for gds-create-game-brief. Mirrors the
-# agent customization shape under the [workflow] namespace.
+# Workflow customization surface for gds-create-game-brief.
+#
+# Override files (not edited here):
+#   {project-root}/_bmad/custom/gds-create-game-brief.toml         (team)
+#   {project-root}/_bmad/custom/gds-create-game-brief.user.toml    (personal)
 
 [workflow]
 
 # --- Configurable below. Overrides merge per BMad structural rules: ---
-#   scalars: override wins • arrays (persistent_facts, activation_steps_*): append
-#   arrays-of-tables with `code`/`id`: replace matching items, append new ones.
+#   scalars: override wins • arrays: append
 
 # Steps to run before the standard activation (config load, greet).
-# Overrides append. Use for pre-flight loads, compliance checks, etc.
-
+# Use for pre-flight loads, compliance checks, etc.
 activation_steps_prepend = []
 
 # Steps to run after greet but before the workflow begins.
-# Overrides append. Use for context-heavy setup that should happen
-# once the user has been acknowledged.
-
+# Use for context-heavy setup that should happen once the user has been acknowledged.
 activation_steps_append = []
 
 # Persistent facts the workflow keeps in mind for the whole run
-# (standards, compliance constraints, stylistic guardrails).
-# Distinct from the runtime memory sidecar — these are static context
-# loaded on activation. Overrides append.
+# (studio standards, platform constraints, stylistic guardrails).
+# Each entry is either a literal sentence, a skill prefixed with `skill:`, or a
+# `file:`-prefixed path/glob whose contents are loaded as facts. Empty by default.
 #
-# Each entry is either:
-#   - a literal sentence, e.g. "Game briefs must anchor on a single core fantasy players can describe in one sentence."
-#   - a file reference prefixed with `file:`, e.g. "file:{project-root}/docs/standards.md"
-#     (glob patterns are supported; the file's contents are loaded and treated as facts).
+# Common opt-ins (set in team/user override TOML):
+#   "file:{project-root}/**/project-context.md"                   # load project context if gds-generate-project-context produced one
+#   "skill:acme-studio:brand-and-rating-guidelines"              # a skill that contains studio info
+#   "Every game brief must anchor on a single core fantasy players can describe in one sentence."
+persistent_facts = []
 
-persistent_facts = [
-  "file:{project-root}/**/project-context.md",
+# Executed when the workflow completes (after the user has been told the
+# brief is ready). Accepts either a string scalar (single instruction)
+# or an array of instructions executed in order. Empty for none.
+on_complete = ""
+
+# Default game-brief structure. Treated as a starting point — the LLM adapts it
+# to the game, purpose, and genre. Override the path in team/user TOML to enforce
+# a different structure (e.g. live-service, narrative-heavy, mobile-F2P).
+brief_template = "assets/brief-template.md"
+
+# Run folder location. The brief and optional addendum land inside
+# `{brief_output_path}/{run_folder_pattern}/`. Resume-check scans
+# `{brief_output_path}` for prior unfinished runs.
+brief_output_path = "{planning_artifacts}/briefs"
+run_folder_pattern = "brief-{project_name}-{date}"
+
+# Polish passes applied to human-consumed docs at finalize. Each entry is a
+# `skill:`, `file:`, or plain-text directive run as a parallel subagent against
+# the draft; findings are applied before the user sees it. Encodes standards,
+# not options.
+#
+# Examples:
+#   "skill:bmad-editorial-review-prose"
+#   "file:{project-root}/_bmad/style-guides/studio-voice.md"
+#   "Convert all dates to ISO 8601 format."
+#
+# Suggested order (broader passes first, narrower last):
+#   1. Structural (cuts, reorganization, section sizing)
+#   2. Content/voice/conventions (studio standards, tone, terminology, rating)
+#   3. Prose mechanics (grammar, clarity, typos)
+#
+# Override the array in team/user TOML to add additional standards. Append-only:
+# base entries cannot be removed or replaced (resolver has no removal mechanism).
+polish_passes = [
+  "skill:bmad-editorial-review-structure",
+  "skill:bmad-editorial-review-prose",
 ]
 
-# Scalar: executed when the workflow reaches Step 8 (Success & Handoff),
-# after the final outputs are produced. Override wins.
-# Leave empty for no custom post-completion behavior.
+# Reviewer panel applied at finalize, after polish_passes. Each entry is a
+# `skill:`, `file:`, or plain-text directive run as a parallel subagent that
+# critiques the draft and returns findings (it does not silently rewrite).
+# Prefix an entry with `required:` to make it a hard gate — the workflow will
+# not present the brief as final until that reviewer passes or the user waives
+# it. `finalize_reviewers` is an alias surface for the same gate. Empty by default.
+#
+# Examples (set in team/user override TOML):
+#   "skill:acme-studio:greenlight-review"
+#   "required:Confirm the core fantasy is stated in a single sentence and the MVP is truly minimal."
+#   "When the brief targets a rated platform, cross-check content against corp:rating_reference."
+reviewers = []
+finalize_reviewers = []
 
-on_complete = ""
+# Name or directive of the single reviewer treated as the required gate when
+# not expressed inline via a `required:` prefix above. Empty by default.
+required_reviewer = ""
+
+# External-source registry. Natural-language directives describing knowledge
+# bases, MCP tools, or internal systems the LLM may consult during the workflow
+# when a relevant need surfaces. The LLM does NOT query these preemptively — it
+# consults them on demand (during Discovery, validation, drafting, etc.). Each
+# entry names the tool, the conditions for using it, and any fields it needs.
+# If a named MCP tool is unavailable at runtime, the LLM falls back to standard
+# behavior and notes the gap. Empty by default.
+#
+# Examples (set in team/user override TOML):
+#   "When researching genre context, consult corp:kb_search (database='game-design-docs') before web search."
+#   "For player-sentiment signal during Discovery, query corp:wishlist_search with project={project_name}."
+#   "When validating platform-rating claims, cross-check against corp:rating_reference."
+external_sources = []
+
+# External-handoff routing. Natural-language directives the LLM applies at
+# Finalize to route outputs beyond local files (Confluence, Notion, Google
+# Drive, ticket systems, etc.). Each entry names the MCP tool, the destination,
+# and the fields it needs. Handoffs run after the artifact is polished and
+# before the final user-facing message. URLs or IDs returned by the destination
+# are captured and surfaced to the user. If a named tool is unavailable at
+# runtime, the handoff is skipped and flagged in the JSON status; local files
+# always exist regardless. Fires automatically — users can opt out in their
+# prompt for a specific run. Empty by default.
+#
+# Examples (set in team/user override TOML):
+#   "After finalize, upload brief.md and addendum.md to Confluence via corp:confluence_upload (space_key='GAME', parent_page='Game Briefs', label='brief', author={user_name})."
+#   "Post a ready-for-review ping to Slack via corp:slack_post (channel='#game-design', text='New game brief: '+{confluence_url})."
+external_handoffs = []

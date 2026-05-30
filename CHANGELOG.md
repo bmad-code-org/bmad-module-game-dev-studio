@@ -2,7 +2,11 @@
 
 ## v0.6.0 - May 30, 2026 — sync with BMAD-METHOD v6.8.0
 
-Syncs game-content and skill changes from BMAD-METHOD v6.6.0 → v6.8.0.
+Syncs game-content and skill changes from BMAD-METHOD v6.6.0 → v6.8.0, and adds Roblox as a first-class engine.
+
+### Engine support
+
+* **Roblox / Luau is now a first-class engine** in `gds-game-architecture`, on par with Unity, Unreal, Godot, and Phaser (#27). Adds a Luau-aware engine knowledge fragment (DataModel and service tree, script run contexts, the replication model, DataStore persistence with session locking, RemoteEvent networking, Parallel Luau, UI architecture, and the Rojo/Wally/TestEZ tooling ecosystem); the official Roblox Studio MCP; Roblox entries across all decision-catalog categories plus a `roblox_experience` stack and `roblox_new_place` starter; and Roblox rows in the engine-recommendation and data-access pattern tables.
 
 ### New skill
 

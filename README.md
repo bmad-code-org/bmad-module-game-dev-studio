@@ -6,7 +6,7 @@
 [![uv](https://img.shields.io/badge/uv-package%20manager-blueviolet?logo=uv)](https://docs.astral.sh/uv/)
 [![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289da?logo=discord&logoColor=white)](https://discord.gg/gk8jAdXWmj)
 
-**BMGD brings BMad's structured development to game development.** Create working prototypes quickly in Unity, Unreal, Godot—or any engine you choose.
+**BMGD brings BMad's structured development to game development.** Create working prototypes quickly in Unity, Unreal, Godot, Roblox—or any engine you choose.
 
 ![BMGD Logo](docs/bmgd-logo.png)
 
@@ -21,6 +21,7 @@ BMGD has first-class support for:
 - [Unity](https://unity.com) — C# scripting, industry-standard for many game types
 - [Unreal Engine](https://www.unrealengine.com/) — Blueprint and C++, AAA powerhouse
 - [Godot](https://godotengine.org/) — Open-source, GDScript, rapidly growing
+- [Roblox](https://www.roblox.com/create) — Luau scripting, platform-native game development
 
 But you're not limited to these—BMGD works with any platform, from pure C to custom engines.
 

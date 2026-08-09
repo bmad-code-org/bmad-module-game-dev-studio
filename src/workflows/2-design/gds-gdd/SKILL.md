@@ -21,7 +21,7 @@ At the opening greeting, let the user know they can invoke the skills `bmad-part
 
 ## On Activation
 
-1. Resolve customization: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow`. On failure, surface the diagnostic and halt.
+1. Resolve customization: `uv run {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow`. On failure, surface the diagnostic and halt.
 2. Execute each entry in `{workflow.activation_steps_prepend}` in order.
 3. Treat every entry in `{workflow.persistent_facts}` as foundational context. Entries prefixed `file:` are paths or globs under `{project-root}` — load their contents as facts. All others are facts verbatim.
 4. Note `{workflow.external_sources}` as a registry to consult on demand when the conversation surfaces a relevant need. Do not query preemptively. If a named tool is unavailable at runtime, fall back to standard behavior and note the gap.

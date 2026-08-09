@@ -40,13 +40,13 @@ After the subagent writes findings, the parent fills `{workflow.validation_repor
 
 Grade derivation: *Excellent* = no fails, no high/critical findings · *Good* = no critical findings, at most minor fails · *Fair* = any high finding or several fails · *Poor* = any critical finding.
 
-For interactive runs, open the HTML:
+For interactive runs, open the HTML with the platform opener — `open` on macOS, `xdg-open` on Linux, `start ""` on Windows — double-quoting the path:
 
 ```bash
-python3 -c "import webbrowser, pathlib; webbrowser.open(pathlib.Path('{doc_workspace}/validation-report.html').resolve().as_uri())"
+open "{doc_workspace}/validation-report.html"
 ```
 
-Skip the open step in headless mode (see `references/headless.md`). Re-running validation overwrites the report in place.
+If the command fails, don't retry with another opener: tell the user the file path and move on. Skip the open step in headless mode (see `references/headless.md`). Re-running validation overwrites the report in place.
 
 ## Close
 

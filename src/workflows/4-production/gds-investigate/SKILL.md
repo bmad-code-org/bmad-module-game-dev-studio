@@ -52,7 +52,7 @@ After every outcome, present what was learned and pause for the user before cont
 
 ### Step 1: Resolve the workflow block
 
-Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow`
+Run: `uv run {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow`
 
 If the script fails, stop and surface the error.
 

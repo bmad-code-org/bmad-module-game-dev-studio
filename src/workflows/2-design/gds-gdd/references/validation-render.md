@@ -44,7 +44,7 @@ Per-finding fields:
 After the subagent writes findings:
 
 ```bash
-python3 {skill-root}/scripts/render-validation-html.py \
+uv run {skill-root}/scripts/render-validation-html.py \
   --findings {doc_workspace}/validation-findings.json \
   --template {workflow.validation_report_template} \
   --output {doc_workspace}/validation-report.html \

@@ -43,7 +43,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
-          cache: "npm"
 
       - name: Configure git user
         run: |
@@ -51,7 +50,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run validation
         run: npm test

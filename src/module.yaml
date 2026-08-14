@@ -3,7 +3,7 @@ name: "BMGD: BMad Game Dev Studio"
 header: "BMad Game Development Studio Module"
 subheader: ""
 default_selected: false
-module_version: 0.6.0
+module_version: 0.7.0
 
 # Variables from Core Config inserted:
 ## user_name

@@ -222,7 +222,7 @@ This sets up Unity Test Framework with:
 
 ## Tips
 
-> **Best Practice:** Always run `bmgd-generate-project-context` after creating a new Unity project. The `project-context.md` file is the "single source of truth" that all BMGD agents reference.
+> **Best Practice:** Always run `gds-generate-project-context` after creating a new Unity project. The `project-context.md` file is the "single source of truth" for project decisions, and the production workflows read it automatically. The conversational agents pick it up only if you add it to their `persistent_facts`.
 
 > **Avoid:** Don't manually organize your Assets folder before running `bmgd-create-architecture`. Let the Game Architect define the structure first, then follow it consistently.
 

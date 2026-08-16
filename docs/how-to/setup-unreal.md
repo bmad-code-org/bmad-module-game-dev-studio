@@ -230,7 +230,7 @@ This sets up Unreal Automation System with:
 
 ## Tips
 
-> **Best Practice:** Always run `bmgd-generate-project-context` after creating a new Unreal project. The `project-context.md` file is the "single source of truth" that all BMGD agents reference.
+> **Best Practice:** Always run `gds-generate-project-context` after creating a new Unreal project. The `project-context.md` file is the "single source of truth" for project decisions, and the production workflows read it automatically. The conversational agents pick it up only if you add it to their `persistent_facts`.
 
 > **Avoid:** Don't start with the First Person template if you're making a third-person game. Choose the template closest to your final game — the Game Architect can advise if unsure.
 

@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## v0.7.1 - Aug 16, 2026 — `persistent_facts` ships empty
+
+### Fixes
+
+- **Workflows and agents no longer load `project-context.md` by default** (#34). Thirty-three `customize.toml` files shipped with `persistent_facts = ["file:{project-root}/**/project-context.md"]` pre-seeded, which made loading that file an opt-out default baked into every skill rather than a customization you choose. All thirty-three now ship `persistent_facts = []`.
+
+  Repository-wide context belongs in `AGENTS.md`, which every skill already sees. `persistent_facts` is for context that only one workflow or agent needs, loaded when it runs instead of carried as constant memory. To opt a skill back in, add the entry to your team or user override TOML:
+
+  ```toml
+  persistent_facts = ["file:{project-root}/**/project-context.md"]
+  ```
+
+- **Docs no longer overstate what loads automatically** (#34). This is the part worth reading if you rely on `project-context.md`, because the two halves of the module behave differently.
+
+  Seven production workflows — including `gds-create-story`, `gds-dev-story`, and `gds-code-review` — declare `project_context = **/project-context.md (load if exists)` as their own workflow variable. They never went through `persistent_facts` and are completely unaffected: they still read the file automatically.
+
+  The five conversational agents picked it up *only* through `persistent_facts`, so they are the population this change touches. `docs/reference/agents.md` claimed "all agents share the principle" of treating `project-context.md` as the source of truth, and `gds-generate-project-context` told you on completion that "AI agents will automatically read this file when implementing". Both now draw the line where it actually falls, as do the Godot, Unity, and Unreal setup guides, which carried the same claim.
+
+- **Setup guides name the right skill** (#34). The three engine guides told you to run `bmgd-generate-project-context`, a prefix that no longer exists. Corrected to `gds-generate-project-context`.
+
 ## v0.7.0 - Aug 9, 2026 — skills stop assuming a system Python
 
 ### Fixes

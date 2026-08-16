@@ -24,14 +24,13 @@ activation_steps_append = []
 # Each entry is either a literal sentence, a skill prefixed with `skill:`, or a `file:`-prefixed
 # path/glob whose contents are loaded as facts.
 #
-# Default loads project-context.md if gds-generate-project-context has produced one — this gives
-# the facilitator persistent awareness of the project's tech, domain, and constraints without
-# re-asking. Common opt-ins (set in team/user override TOML):
+# Empty by default. Studio-wide context belongs in AGENTS.md, which every skill already sees; use
+# this for context only this workflow needs, loaded on demand rather than carried as constant
+# memory. Common opt-ins (set in team/user override TOML):
+#   "file:{project-root}/**/project-context.md"                               # if you keep a project-context.md
 #   "skill:acme-studio:terms-and-conditions"                                  # a skill that contains relevant info
 #   "Every PRD requirement must be testable and traceable to a GDD pillar."   # generic agent instruction
-persistent_facts = [
-  "file:{project-root}/**/project-context.md",
-]
+persistent_facts = []
 
 # Executed when the workflow completes (after the user has been told the
 # PRD is ready). Accepts either a string scalar (single instruction)

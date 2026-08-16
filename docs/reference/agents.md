@@ -302,11 +302,13 @@ Game Developer integrates testing at multiple points within Phase 4:
 
 ## Project Context
 
-All agents share the principle:
+Production workflows such as `gds-create-story`, `gds-dev-story`, and `gds-code-review` load `**/project-context.md` directly if it exists, and treat it as the source of truth for project decisions and constraints.
 
-> "Find if this exists, and if it does, always treat it as the source of truth for planning and execution: `**/project-context.md`"
+The conversational agents do not. They pick up standing context only through `persistent_facts` in their `customize.toml`, which ships empty. Put studio-wide rules in `AGENTS.md` so every agent sees them, or add an explicit entry to opt a single agent in:
 
-The `project-context.md` file (if present) serves as the authoritative source for project decisions and constraints.
+```toml
+persistent_facts = ["file:{project-root}/**/project-context.md"]
+```
 
 ## Next Steps
 

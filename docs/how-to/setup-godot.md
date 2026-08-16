@@ -229,7 +229,7 @@ This sets up GUT (Godot Unit Test) with:
 
 ## Tips
 
-> **Best Practice:** Always run `bmgd-generate-project-context` after creating a new Godot project. The `project-context.md` file is the "single source of truth" that all BMGD agents reference.
+> **Best Practice:** Always run `gds-generate-project-context` after creating a new Godot project. The `project-context.md` file is the "single source of truth" for project decisions, and the production workflows read it automatically. The conversational agents pick it up only if you add it to their `persistent_facts`.
 
 > **Avoid:** Don't create deeply nested scene trees. Godot's scene system encourages composition — prefer many small scenes over one large scene.
 

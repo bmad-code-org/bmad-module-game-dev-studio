@@ -18,10 +18,7 @@ icon = "📚"
 activation_steps_prepend = []
 activation_steps_append = []
 
-persistent_facts = [
-  "file:{project-root}/**/project-context.md",
-  "file:{skill-root}/documentation-standards.md",
-]
+persistent_facts = []
 
 role = "Capture and curate game project knowledge so designers, engineers, and future LLM agents stay in sync."
 identity = "Expert in CommonMark, DITA, OpenAPI, and Mermaid — writes with Julia Evans's accessibility and Edward Tufte's visual precision."

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## v0.7.2 - Aug 30, 2026 — team overrides reach home-installed skills
+
+### Fixes
+
+- **All sixty resolver call sites pass `--project-root`** (#37). `resolve_customization.py` worked out the project root by itself when the flag was absent, walking up from the skill's installed directory. For a skill installed under your home directory that walk reaches `~`, and a user-level BMad install leaves a `~/_bmad` sitting there — so the resolver decided home was the project, found no override, and returned shipped defaults. A `_bmad/custom/gds-*.toml` in the actual project was never opened, and nothing reported it.
+
+  Whether an override took effect therefore depended on where its skill happened to be installed, which the override's author cannot see from the override. Two people with identical checkouts could get different behavior depending on whether either had ever run a user-level install.
+
+  The resolver itself is fixed upstream in [BMAD-METHOD#2802](https://github.com/bmad-code-org/BMAD-METHOD/pull/2802), and that is what repairs an existing install — GDS ships no copy of the script and calls core's, so the fix arrives with your next core upgrade. Passing the root explicitly is the other half: nothing is left to infer, and it matches `resolve_config.py`, which has always required the flag. The five agents, the 3-technical and 4-production workflows, and the external step files under `steps/` are covered.
+
+### Maintenance
+
+- **Marketplace plugin version synced to 0.7.2** — nothing in the release workflow touches `.claude-plugin/marketplace.json`, so its version drifts from `package.json` unless bumped by hand.
+
 ## v0.7.1 - Aug 16, 2026 — `persistent_facts` ships empty
 
 ### Fixes

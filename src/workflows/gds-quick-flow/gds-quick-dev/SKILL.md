@@ -13,7 +13,7 @@ description: 'Implements any user intent, requirement, story, bug fix or change 
 
 - Bare paths (e.g. `template.md`) resolve from the skill root.
 - `{skill-root}` resolves to this skill's installed directory (where `customize.toml` lives).
-- `{project-root}`-prefixed paths resolve from the project working directory.
+- `{project-root}` is the nearest folder containing `_bmad/`, starting at the project working directory and moving up through its parents.
 - `{skill-name}` resolves to the skill directory's basename.
 
 ## On Activation
